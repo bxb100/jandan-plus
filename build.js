@@ -44,4 +44,22 @@ fs.copyFile(
   }
 );
 
+fs.copyFile(
+  path.join(__dirname, 'template.html'),
+  path.join(__dirname, 'dist/template.html'),
+  (err) => {
+    if (err) throw err;
+  }
+);
+
+fs.copyFile(
+  path.join(__dirname, 'mzt.js'),
+  path.join(__dirname, 'dist/mzt.js'),
+  (err) => {
+    if (err) throw err;
+  }
+);
+
+
+
 copyFolder('assets', 'dist/assets');

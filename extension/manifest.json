@@ -9,12 +9,19 @@
         "48": "assets/icon-48.png",
         "128": "assets/icon-128.png"
     },
-    "content_scripts": [ {
+    "content_scripts": [
+      {
+        "js": ["mzt.js"],
+        "matches": ["*://jandan.net/mzt*"],
+        "run_at": "document_start"
+      },
+      {
         "js": ["index.js"],
         "css": ["index.css"],
-        "matches": ["*://jandan.net/top", "*://jandan.net/top-4h", "*://jandan.net/top-tucao", "*://jandan.net/top-ooxx", "*://jandan.net/top-comments", "*://jandan.net/top-3days", "*://jandan.net/top-7days", "*://jandan.net/qa*", "*://jandan.net/treehole*", "*://jandan.net/ooxx*", "*://jandan.net/pic*", "*://jandan.net/t/*"],
+        "matches": ["*://jandan.net/top", "*://jandan.net/top-4h", "*://jandan.net/top-tucao", "*://jandan.net/top-ooxx", "*://jandan.net/top-comments", "*://jandan.net/top-3days", "*://jandan.net/top-7days", "*://jandan.net/qa*", "*://jandan.net/treehole*", "*://jandan.net/ooxx*", "*://jandan.net/pic*", "*://jandan.net/t/*", "*://jandan.net/mzt*"],
         "run_at": "document_end"
-    } ],
+      }
+    ],
     "permissions": [
       "declarativeNetRequest",
       "declarativeNetRequestWithHostAccess"
@@ -31,8 +38,15 @@
     "host_permissions": [
       "*://jandan.net/*",
       "*://i.jandan.net/*",
+      "*://api.jandan.net/*",
       "*://*.sinaimg.cn/*",
       "*://*.moyu.im/*"
-    ]
+    ],
+   "web_accessible_resources": [
+     {
+       "resources": ["template.html"],
+       "matches": [ "https://jandan.net/*"]
+     }
+   ]
 }
 

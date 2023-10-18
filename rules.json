@@ -47,5 +47,27 @@
         "xmlhttprequest"
       ]
     }
+  },
+  {
+    "id": 3,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "responseHeaders": [
+        {
+          "header": "access-control-allow-origin",
+          "operation": "append",
+          "value": "*"
+        }
+      ]
+    },
+    "condition": {
+      "requestDomains": [
+        "jandan.net"
+      ],
+      "resourceTypes": [
+        "xmlhttprequest"
+      ]
+    }
   }
 ]

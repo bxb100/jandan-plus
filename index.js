@@ -674,21 +674,22 @@ canvas {
     }
 });
 
-let config = {
+function buildPlayer() {
+  let config = {
     autoplay: document.querySelector('#gif-click-load-off')?.classList.contains('switch-current')
-};
+  };
 
-let imgElList;
+  let imgElList;
 
-if (config.autoplay) {
+  if (config.autoplay) {
     imgElList = document.querySelectorAll('img[src$=".gif"]');
-} else {
+  } else {
     imgElList = document.querySelectorAll('img[org_src]');
-}
+  }
 
 // console.log(`为 ${imgElList.length} 个 GIF 图片添加了播放器`);
 
-imgElList.forEach((img) => {
+  imgElList.forEach((img) => {
     let poster = img.getAttribute('src');
     let src    = img.getAttribute('org_src') || img.getAttribute('src');
 
@@ -705,4 +706,13 @@ imgElList.forEach((img) => {
 
     img.insertAdjacentElement('beforebegin', player);
     img.hidden = true;
-});
+  });
+
+  const item = document.querySelector(".nav-item:nth-child(5)")
+  if (item) {
+    item.insertAdjacentHTML("afterend", `<li class="nav-item"><a class="nav-link" href="/mzt" onfocus="blur()" onclick="ga('send', 'pageview','/mzt');">妹子图</a></li>`)
+  }
+}
+
+window.buildPlayer = buildPlayer;
+buildPlayer()
