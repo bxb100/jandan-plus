@@ -12,8 +12,8 @@
     "content_scripts": [
       {
         "js": ["mzt.js"],
-        "matches": ["*://jandan.net/mzt*"],
-        "run_at": "document_start"
+        "matches": ["*://jandan.net/*"],
+        "run_at": "document_end"
       },
       {
         "js": ["index.js"],

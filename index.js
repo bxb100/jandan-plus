@@ -707,11 +707,6 @@ function buildPlayer() {
     img.insertAdjacentElement('beforebegin', player);
     img.hidden = true;
   });
-
-  const item = document.querySelector(".nav-item:nth-child(5)")
-  if (item) {
-    item.insertAdjacentHTML("afterend", `<li class="nav-item"><a class="nav-link" href="/mzt" onfocus="blur()" onclick="ga('send', 'pageview','/mzt');">妹子图</a></li>`)
-  }
 }
 
 window.buildPlayer = buildPlayer;
