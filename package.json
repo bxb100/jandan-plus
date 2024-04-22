@@ -21,9 +21,9 @@
     "@webcomponents/custom-elements": "^1.6.0"
   },
   "devDependencies": {
-    "rollup": "^3.27.2",
-    "@rollup/plugin-commonjs": "^25.0.3",
-    "@rollup/plugin-node-resolve": "^15.1.0",
-    "rollup-plugin-terser": "^7.0.2"
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup": "^4.16.1"
   }
 }
