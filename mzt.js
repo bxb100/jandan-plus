@@ -1,12 +1,15 @@
-appendNavItem();
-if (window.location.pathname.startsWith('/mzt')) {
-  document.getElementsByTagName("html")[0].innerHTML = ""
-  let nextId = window.location.pathname.split('/')[2]
-  let api = `https://api.jandan.net/api/v1/comment/list/108629${nextId ? `?start_id=${nextId}` : ''}`
-  fetch(chrome.runtime.getURL('template.html')).then(r => r.text()).then(html => {
-    fetch(api).then(r => r.json()).then(json => json.data)
-      .then(data => {
-        let content = data.map(item => `
+document.addEventListener('DOMContentLoaded', fireContentLoadedEvent, false);
+
+function fireContentLoadedEvent () {
+  appendNavItem();
+  if (window.location.pathname.startsWith('/mzt')) {
+    document.body.innerHTML = ""
+    let nextId = window.location.pathname.split('/')[2]
+    let api = `https://api.jandan.net/api/v1/comment/list/108629${nextId ? `?start_id=${nextId}` : ''}`
+    fetch(chrome.runtime.getURL('template.html')).then(r => r.text()).then(html => {
+      fetch(api).then(r => r.json()).then(json => json.data)
+        .then(data => {
+          let content = data.map(item => `
              <li id="comment-${ item.id }">
                         <div>
                             <div class="row">
@@ -32,18 +35,19 @@ if (window.location.pathname.startsWith('/mzt')) {
                         </div>
                     </li>
       `).join(" ")
-        html = html.replace("<content/>", content)
-        html = html.replaceAll("{{next_page_id}}", data[data.length - 1].id)
-        return html
-      })
-      .then(str => {
-        str = str.replace("<flag/>", "<ok/>")
-        document.getElementsByTagName("html")[0].innerHTML = str;
-        window.buildPlayer();
-      })
-    document.title = "妹子图"
-    document.getElementsByTagName("html")[0].innerHTML = html
-  });
+          html = html.replace("<content/>", content)
+          html = html.replaceAll("{{next_page_id}}", data[data.length - 1].id)
+          return html
+        })
+        .then(str => {
+          str = str.replace("<flag/>", "<ok/>")
+          document.getElementsByTagName("html")[0].innerHTML = str;
+          window.buildPlayer();
+        })
+      document.title = "妹子图"
+      document.getElementsByTagName("html")[0].innerHTML = html
+    });
+  }
 }
 
 function appendNavItem() {

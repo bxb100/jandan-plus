@@ -17,7 +17,7 @@
             "matches": [
                 "*://jandan.net/*"
             ],
-            "run_at": "document_end"
+            "run_at": "document_start"
         },
         {
             "js": [
@@ -50,7 +50,7 @@
             "matches": [
                 "*://jandan.net/mzt*"
             ],
-            "run_at": "document_end",
+            "run_at": "document_start",
             "world": "MAIN"
         }
     ],
