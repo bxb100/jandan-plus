@@ -27,7 +27,7 @@ function fireContentLoadedEvent () {
                                  <div class="jandan-vote">
                                     <a title="圈圈/支持" href="javascript:;" class="comment-like like" data-id="${ item.id }" data-type="pos">OO</a> [<span>${ item.vote_positive }</span>]
                                      <a title="叉叉/反对" href="javascript:;" class="comment-unlike unlike" data-id="${ item.id }" data-type="neg">XX</a> [<span>${ item.vote_negative }</span>]
-                                    <a href="javascript:;" class="tucao-btn" data-id="${ item.id }"> 吐槽 </a>
+                                    <a href="javascript:;" class="tucao-btn" data-id="${ item.id }"> 吐槽</a> [<span>${ item.sub_comment_count || 0 }</span>]
                                  </div>
 
 
