@@ -10,43 +10,79 @@
         "128": "assets/icon-128.png"
     },
     "content_scripts": [
-      {
-        "js": ["mzt.js"],
-        "matches": ["*://jandan.net/*"],
-        "run_at": "document_end"
-      },
-      {
-        "js": ["index.js"],
-        "css": ["index.css"],
-        "matches": ["*://jandan.net/top", "*://jandan.net/top-4h", "*://jandan.net/top-tucao", "*://jandan.net/top-ooxx", "*://jandan.net/top-comments", "*://jandan.net/top-3days", "*://jandan.net/top-7days", "*://jandan.net/qa*", "*://jandan.net/treehole*", "*://jandan.net/ooxx*", "*://jandan.net/pic*", "*://jandan.net/t/*", "*://jandan.net/mzt*"],
-        "run_at": "document_end"
-      }
+        {
+            "js": [
+                "mzt.js"
+            ],
+            "matches": [
+                "*://jandan.net/*"
+            ],
+            "run_at": "document_end"
+        },
+        {
+            "js": [
+                "index.js"
+            ],
+            "css": [
+                "index.css"
+            ],
+            "matches": [
+                "*://jandan.net/top",
+                "*://jandan.net/top-4h",
+                "*://jandan.net/top-tucao",
+                "*://jandan.net/top-ooxx",
+                "*://jandan.net/top-comments",
+                "*://jandan.net/top-3days",
+                "*://jandan.net/top-7days",
+                "*://jandan.net/qa*",
+                "*://jandan.net/treehole*",
+                "*://jandan.net/ooxx*",
+                "*://jandan.net/pic*",
+                "*://jandan.net/t/*",
+                "*://jandan.net/mzt*"
+            ],
+            "run_at": "document_end"
+        },
+        {
+            "js": [
+                "mzt_func.js"
+            ],
+            "matches": [
+                "*://jandan.net/mzt*"
+            ],
+            "run_at": "document_end",
+            "world": "MAIN"
+        }
     ],
     "permissions": [
-      "declarativeNetRequest",
-      "declarativeNetRequestWithHostAccess"
+        "declarativeNetRequest",
+        "declarativeNetRequestWithHostAccess"
     ],
     "declarative_net_request": {
-      "rule_resources": [
-        {
-          "id": "redirect2sina",
-          "enabled": true,
-          "path": "rules.json"
-        }
-      ]
+        "rule_resources": [
+            {
+                "id": "redirect2sina",
+                "enabled": true,
+                "path": "rules.json"
+            }
+        ]
     },
     "host_permissions": [
-      "*://jandan.net/*",
-      "*://i.jandan.net/*",
-      "*://api.jandan.net/*",
-      "*://*.sinaimg.cn/*",
-      "*://*.moyu.im/*"
+        "*://jandan.net/*",
+        "*://i.jandan.net/*",
+        "*://api.jandan.net/*",
+        "*://*.sinaimg.cn/*",
+        "*://*.moyu.im/*"
     ],
-   "web_accessible_resources": [
-     {
-       "resources": ["template.html"],
-       "matches": [ "https://jandan.net/*"]
-     }
-   ]
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "template.html"
+            ],
+            "matches": [
+                "https://jandan.net/*"
+            ]
+        }
+    ]
 }
 

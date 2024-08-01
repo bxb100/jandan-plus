@@ -1,5 +1,6 @@
 appendNavItem();
 if (window.location.pathname.startsWith('/mzt')) {
+  document.getElementsByTagName("html")[0].innerHTML = ""
   let nextId = window.location.pathname.split('/')[2]
   let api = `https://api.jandan.net/api/v1/comment/list/108629${nextId ? `?start_id=${nextId}` : ''}`
   fetch(chrome.runtime.getURL('template.html')).then(r => r.text()).then(html => {
@@ -17,23 +18,16 @@ if (window.location.pathname.startsWith('/mzt')) {
                                     ${ item.images.map(img => `
                                         <p><a href="${ img.full_url }"
                                           target="_blank" class="view_img_link">[查看原图]</a><br/><img ${ img.url.endsWith(".gif") ? `org_src=${ img.full_url.replace('http:', 'https:') }` : '' }
-                                            src="${ img.url.replace('http:', 'https:') }"/></p> 
+                                            src="${ img.url.replace('http:', 'https:') }"/></p>
                                     `).join(" ") }
                                 </div>
-                                <div class="jandan-vote">
-                            <span class="comment-report-c">
-                                <a title="举报" href="javascript:;" class="comment-report" data-id="${ item.id }">[举报]</a>
-                            </span>
-                                    <span class="tucao-like-container">
-                            <a title="圈圈/支持" href="javascript:;" class="comment-like like" data-id="${ item.id }"
-                               data-type="pos">OO</a> [<span>${ item.vote_positive }</span>]
-                            </span>
-                                    <span class="tucao-unlike-container">
-                            <a title="叉叉/反对" href="javascript:;" class="comment-unlike unlike" data-id="${ item.id }"
-                               data-type="neg">XX</a> [<span>${ item.vote_negative }</span>]
+                                 <div class="jandan-vote">
+                                    <a title="圈圈/支持" href="javascript:;" class="comment-like like" data-id="${ item.id }" data-type="pos">OO</a> [<span>${ item.vote_positive }</span>]
+                                     <a title="叉叉/反对" href="javascript:;" class="comment-unlike unlike" data-id="${ item.id }" data-type="neg">XX</a> [<span>${ item.vote_negative }</span>]
+                                    <a href="javascript:;" class="tucao-btn" data-id="${ item.id }"> 吐槽 </a>
+                                 </div>
 
-                            </span>
-                                </div>
+
                             </div>
                         </div>
                     </li>
@@ -43,7 +37,8 @@ if (window.location.pathname.startsWith('/mzt')) {
         return html
       })
       .then(str => {
-        document.getElementsByTagName("html")[0].innerHTML = html;
+        str = str.replace("<flag/>", "<ok/>")
+        document.getElementsByTagName("html")[0].innerHTML = str;
         window.buildPlayer();
       })
     document.title = "妹子图"
