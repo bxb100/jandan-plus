@@ -177,7 +177,7 @@ canvas {
     pointer-events: none;
 }
 
-.media-controls-progress-track-loded, 
+.media-controls-progress-track-loded,
 .media-controls-progress-track-played,
 .media-controls-progress-track-thumb {
     position: absolute;
@@ -693,8 +693,10 @@ function buildPlayer() {
     let poster = img.getAttribute('src');
     let src    = img.getAttribute('org_src') || img.getAttribute('src');
 
-    poster = poster.replace('moyu.im', 'sinaimg.cn');
-    src = src.replace('moyu.im', 'sinaimg.cn');
+    // if (poster.indexOf("tc1.moyu.im") === -1) {
+    //   poster = poster.replace('moyu.im', 'sinaimg.cn');
+    //   src = src.replace('moyu.im', 'sinaimg.cn');
+    // }
 
     let player = document.createElement('cherry-gif');
     config.autoplay ? player.setAttribute('autoplay') : player.setAttribute('preload', 'none');
