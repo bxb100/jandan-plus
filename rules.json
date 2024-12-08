@@ -63,7 +63,8 @@
         },
         "condition": {
             "requestDomains": [
-                "jandan.net"
+                "jandan.net",
+                "toto.im"
             ],
             "resourceTypes": [
                 "xmlhttprequest"

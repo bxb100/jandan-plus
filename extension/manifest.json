@@ -72,7 +72,8 @@
         "*://i.jandan.net/*",
         "*://api.jandan.net/*",
         "*://*.sinaimg.cn/*",
-        "*://*.moyu.im/*"
+        "*://*.moyu.im/*",
+        "*://*.toto.im/*"
     ],
     "web_accessible_resources": [
         {
