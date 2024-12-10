@@ -63,14 +63,31 @@
         },
         "condition": {
             "requestDomains": [
-                "jandan.net",
-                "toto.im"
+                "jandan.net"
             ],
             "resourceTypes": [
                 "xmlhttprequest"
             ]
         }
     },
+  {
+    "id": 5,
+    "priority": 99,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "regexSubstitution": "https://gzw.sinaimg.cn/\\1"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https:\/\/img.toto.im\/(.*)",
+      "resourceTypes": [
+        "main_frame",
+        "xmlhttprequest",
+        "image"
+      ]
+    }
+  },
     {
         "id": 4,
         "priority": 99,
