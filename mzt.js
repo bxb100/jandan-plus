@@ -53,7 +53,7 @@ function fireContentLoadedEvent () {
 function appendNavItem() {
   const item = document.querySelector(".nav-item:nth-child(5)")
   if (item) {
-    item.insertAdjacentHTML("afterend", `<li class="nav-item"><a class="nav-link" href="/mzt" onfocus="blur()" onclick="ga('send', 'pageview','/mzt');">妹子图</a></li>`)
+    item.insertAdjacentHTML("afterend", `<li class="nav-item"><a class="nav-link p-1" href="/mzt" onfocus="blur()" onclick="ga('send', 'pageview','/mzt');">妹子图</a></li>`)
   }
 }
 

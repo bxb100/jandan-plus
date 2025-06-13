@@ -80,7 +80,7 @@
       }
     },
     "condition": {
-      "regexFilter": "^https:\/\/img.toto.im\/(.*)",
+      "regexFilter": "^https:\/\/img.toto.im\/(.*)\\.webp",
       "resourceTypes": [
         "main_frame",
         "xmlhttprequest",
